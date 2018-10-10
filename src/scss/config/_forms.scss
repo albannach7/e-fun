@@ -1,0 +1,26 @@
+input[type=text],
+input[type=password],
+input[type=email],
+select,
+textarea {
+	display: block;
+	margin: 20px 0;
+	padding: 10px;
+	width: 100%;
+	max-width: 100%;
+	background: rgba($clr-brand-primary-blue , 0.3);
+	color: $clr-text-primary-1;
+	border: 1px solid $clr-brand-purple;
+	border-radius: 0;
+	box-shadow: none;
+	-webkit-appearance: none;
+	transition: all 0.8s ease;
+	&:focus {
+		border-color: $clr-brand-primary-blue;
+	}
+
+	@include placeholder {
+		color: $clr-text-form-placeholder;
+	}
+
+}

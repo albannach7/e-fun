@@ -1,6 +1,6 @@
 import React from 'react';
 import DataService from "../services/DataService";
-import {Bar} from 'react-chartjs-2';
+import {Bar,Doughnut} from 'react-chartjs-2';
 
 /**
  * Header component, displaying utility menu if user is signed in.
@@ -8,21 +8,8 @@ import {Bar} from 'react-chartjs-2';
 export class ResultComponent extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {}
-	}
-
-	componentDidMount() {
-		DataService.getAllData(true).then(
-			data => {
-				const dataSet = data[this.props.match.params.id];
-				this.setState(dataSet)
-			}
-		).catch(error => console.error(error));
-	}
-
-	render() {
-		let data = [];
-		const chartOptions = {
+		this.state = {};
+		this.chartStyles = {
 			scales: {
 				fill: false,
 				yAxes: [
@@ -53,12 +40,25 @@ export class ResultComponent extends React.Component {
 				]
 			}
 		};
+	}
+
+	componentDidMount() {
+		DataService.getAllData(true).then(
+			data => {
+				const dataSet = data[this.props.match.params.id];
+				this.setState(dataSet)
+			}
+		).catch(error => console.error(error));
+	}
+
+	render() {
+		let data = [];
 
 		if (this.state.compliance && this.state.compliance.tests) {
 			const tests = this.state.compliance.tests;
 			const [labels, percentages] = Object.keys(tests[0]).map(p => tests.map(i => i[p]));
 			data = {
-				labels: labels.map(label => label.replace(/([A-Z])/g, ' $1').replace(/^./, str =>str.toUpperCase())),
+				labels: labels.map(label => label.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())),
 				datasets: [
 					{
 						label: 'Score',
@@ -73,12 +73,32 @@ export class ResultComponent extends React.Component {
 			};
 		}
 
-
 		return <div>
 			<h1>{this.state.name}</h1>
-			{this.state.compliance && this.state.compliance.tests ?
-				<Bar data={data} options={chartOptions}/> : 'No Test available'
-			}
+			<a className={'back-button'} href={'/'}><i className={'fas fa-arrow-left'}/>Back</a>
+			<div className={'row'}>
+				<div className={'col-8'}><h2>Descriptions</h2>{this.state.description}</div>
+				<div className={'col-4'}><h2>Ingredients</h2>{this.state.ingredients}</div>
+			</div>
+			<div className={'row'}>
+				<h2 className={'align-center'}>Tests</h2>
+				<div className={'col-8'}>
+					{this.state.compliance && this.state.compliance.tests ?
+						<Bar data={data} options={this.chartStyles}/> : 'No Test available'
+					}
+				</div>
+				<div className={'col-4'}>
+					{this.state.compliance && this.state.compliance.fields ?
+						Object.entries(this.state.compliance.fields).map((field, key) =>
+							<div className={'progress-bar'}>
+								<label>{field[0]}</label>
+								<progress max={100} value={field[1]}/>
+							</div>
+
+						) : 'No fields defined'}
+
+				</div>
+			</div>
 		</div>
 	}
 }

@@ -1,0 +1,20 @@
+.progress-bar {
+	label {
+		display: block;
+		text-align: center;
+		text-transform: capitalize;
+	}
+}
+progress {
+	background-color: $clr-text-primary-3;
+	color: $clr-brand-purple;
+	width: 100%;
+	min-height: 20px;
+	margin: .3em 0;
+}
+.back-button {
+	font-size: 1.2em;
+	.fa {
+		margin-right: 6px;
+	}
+}

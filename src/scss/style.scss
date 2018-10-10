@@ -4,10 +4,10 @@
 @import "_mixins/calc";
 @import "_mixins/grid";
 @import "_mixins/helper";
-@import "_mixins/icons";
 @import "config/colours";
 @import "config/vars";
-
+@import "config/forms";
+@import "config/grid";
 @import "config/base";
 @import "config/placeholder";
 @import "config/typography";
@@ -15,3 +15,4 @@
 
 @import "components/TableComponent";
 @import "components/HeaderComponent";
+@import "components/ResultComponent";
