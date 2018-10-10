@@ -1,0 +1,41 @@
+/// Breakpoints
+$bp-md: 60em;
+$bp-lg: 1600px;
+
+$base-font-size: 16px;
+
+$header-height-perc: 0.16;
+
+$content-padding-xs: 10px;
+$content-padding-sm: 20px;
+$content-padding: 40px;
+
+$content-max-width: 1000px;
+
+$logo-max-width: 260px;
+$logo-max-height: 200px;
+
+$text-padding-sm: 0.5em;
+$text-padding: 1em;
+$text-padding-lg: 3em;
+
+$text-size-h1: 2.25em;
+$text-size-h2: 1.75em;
+$text-size-h3: 1.5em;
+$text-size-h4: 1.25em;
+$text-size-p: 1.1em;
+
+$transition-duration-xs: 0.1s;
+$transition-duration-md: 0.5s;
+$transition-duration-lg: 1.3s;
+
+$input-radius: 5px;
+$input-focus-border-width: 5px;
+
+//Breakpoints
+$breakpoints: (
+		"small" : 23em,
+		"medium": 35em,
+		"large": 40em,
+		"x-large": 55em
+);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { HeaderComponent } from './components/HeaderComponent.jsx';
-import './App.css';
+import HeaderComponent from './components/HeaderComponent.jsx';
+import './App.scss';
 import {TableComponent} from "./components/TableComponent";
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import {ResultComponent} from "./components/ResultComponent";
@@ -8,7 +8,7 @@ import {ResultComponent} from "./components/ResultComponent";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App content-wrapper">
 		  <HeaderComponent />
           <Router>
               <div className="main-content">

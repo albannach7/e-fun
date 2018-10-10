@@ -1,20 +1,11 @@
 import React from 'react';
 
-/**
- * Header component, displaying utility menu if user is signed in.
- */
-export class HeaderComponent extends React.Component {
-	constructor(props) {
-		super(props);
+const HeaderComponent = (props) => (
+	<header>
+		<div className="content-wrapper">
+			<img className="main-logo" src="https://static1.squarespace.com/static/570505202b8ddeb199ef31ae/t/5a79df5024a6948cfd30a2d0/1538581490567/?format=1500w" />
+		</div>
+	</header>
+)
 
-		this.showUtilities = props.showUtilities;
-	}
-
-	render() {
-		return <header>
-			<div className="header">
-				<h1>Hello</h1>
-			</div>
-		</header>;
-	}
-}
+export default HeaderComponent;

@@ -1,0 +1,75 @@
+/**
+ * Assign a width [at a certain breakpoint] given a column layout with gutters.
+ * Usage:
+ * @include columns(width[, breakpoint][, gutter][, breakpoint dimension][, number of columns]);
+ * Where:
+ * width - percentage expressed however (eg. 4/6, 0.5, 20%). If percentage does not evenly break within the number of columns, the width assigned will be rounded down (eg. 4/5 of 12 columns will be 9 columns, or 75%).
+ * breakpoint (optional) - integer (em, px)
+ * gutter (optional) - integer (px, em)
+ * breakpoint dimension - 'min' or 'max'
+ * number of columns - integer, no unit
+ *
+ * Example:
+ *  .cols1 {
+ *	   .col {
+ *		   @include columns(1/2);
+ *		   @include columns(1/4, 50em);
+ *		   @include columns(1/6, 80em);
+ *	   }
+ *	   @include clearfix();
+ *
+ *	   @media all and (min-width: 120em) {
+ *		   float: left;
+ *		   @include columns(1/2);
+ *	   }
+ *   }
+ */
+
+$layout-cols: 10 !default;
+$layout-gutter: 40px !default;
+$layout-direction: 'min' !default;
+@mixin columns($percentage, $breakpoint:'', $gutter:$layout-gutter, $direction:$layout-direction, $colNum:$layout-cols) {
+
+	$setPercentage: floor(percentage($percentage) * $colNum) / $colNum;
+
+	@if $breakpoint!='' and $breakpoint!=false {
+		@if $direction!='min' and $direction!='max' {
+				@error '@columns() requires fourth argument to be "min" or "max".';
+		}
+		@media all and (#{$direction}-width: $breakpoint) {
+			@include _columnsNoBreakpoint($setPercentage, $gutter);
+		}
+	} @else {
+		@include _columnsNoBreakpoint($setPercentage, $gutter);
+	}
+}
+@mixin columnsPush($percentage, $breakpoint:'', $gutter:$layout-gutter, $direction:$layout-direction, $colNum:$layout-cols) {
+	$setPercentage: floor(percentage($percentage) * $colNum) / $colNum;
+
+	@if $breakpoint!='' and $breakpoint!=false {
+		@if $direction!='min' and $direction!='max' {
+				@error '@columns() requires fourth argument to be "min" or "max".';
+		}
+		@media all and (#{$direction}-width: $breakpoint) {
+			@include _pushNoBreakpoint($setPercentage, $gutter);
+		}
+	} @else {
+		@include _pushNoBreakpoint($setPercentage, $gutter);
+	}
+}
+@mixin _columnsNoBreakpoint($setPercentage, $gutter) {
+	float: left;
+	@if $gutter==false or $gutter==0 {
+		width: $setPercentage;
+	} @else {
+		margin-right: $gutter;
+		margin-left: $gutter;
+		// <IE9 % gutter fallback needed
+		width: calc( #{$setPercentage} - #{$gutter} - #{$gutter} );
+	}
+}
+@mixin _pushNoBreakpoint($setPercentage, $gutter) {
+	margin-left: $setPercentage;
+	margin-left: calc( #{$setPercentage} + #{$gutter} );
+}
+	

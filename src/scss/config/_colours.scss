@@ -1,0 +1,49 @@
+
+/// Brand - Primary colours
+$clr-brand-primary-blue: #208DBD;
+$clr-brand-turquoise: #82D2DB;
+$clr-brand-green: #8CCD4E;
+$clr-brand-orange: #FB9A38;
+$clr-brand-red: #F3584C;
+$clr-brand-yellow: #E6BC32;
+$clr-brand-purple: #AB6DB7;
+$clr-brand-ocean: #312AB0;
+
+
+
+/// Layout - Base Colours
+$clr-layout-black: #000000;
+$clr-layout-white: #FFFFFF;
+
+/// Layout - Primary colours
+$clr-layout-primary-1: #FFFFFF;
+$clr-layout-primary-2: #efefef;
+$clr-layout-primary-3: #d1d3d4;
+$clr-layout-primary-4: #d9dadb;
+$clr-layout-primary-5: #cee4ee;
+
+/// Typography - Text - Primary colours
+$clr-text-primary-1: #000000;
+$clr-text-primary-2: #FFFFFF;
+$clr-text-primary-3: #a7a9ac;
+$clr-text-primary-4: #414042;
+$clr-text-primary-5: #d1d3d4;
+
+/// Typography - Text - Secondary colours
+$clr-text-secondary-1: #000000;
+$clr-text-secondary-2: #e5b611;
+$clr-text-secondary-3: #a7a9ac;
+$clr-text-secondary-4: #d1d3d4;
+
+/// Typography - Link - Primary colours
+$clr-link-primary-1: $clr-brand-primary-blue;
+$clr-link-primary-2: #FFFFFF;
+
+/// Typography - Link - Secondary colours
+$clr-link-secondary-1: #249AC9;
+$clr-link-secondary-2: #000000;
+
+// Typography - Form
+$clr-text-form-placeholder: #a7a9ac;
+$clr-text-form-input: #58595b;
+$clr-text-form-warning: #ed1c24;

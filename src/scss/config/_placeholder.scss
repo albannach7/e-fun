@@ -1,0 +1,28 @@
+%clearfix,
+.clearfix {
+	&:after {
+		content: ' ';
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+%screen-reader-only,
+.screen-reader-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+
+%frame-reset {
+	@include clearfix();
+	margin: 0;
+	padding: 0;
+}

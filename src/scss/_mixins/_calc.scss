@@ -1,0 +1,16 @@
+/**
+ * Create em() for setting font-sizes in pixels.
+ *
+ * Example usage: font-size: em(21);
+ * This will set the font-size to 21px in relation to the browser's base font size if it has not been established in any parent element, or in relation to $base-font-size which is a variable you can set in your Sass.
+ *
+ * Example usage 2: font-size: em(12, 10);
+ * This will set the font-size to 12px in relation to a parent element's font-size of 10px.
+ */
+$base-font-size: 16px !default;
+@function em($target, $context: $base-font-size) {
+	@if $target == 0 {
+		@return 0
+	}
+	@return $target / $context + 0em;
+}

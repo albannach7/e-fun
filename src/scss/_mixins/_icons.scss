@@ -1,0 +1,30 @@
+/*!
+ * EmojiSymbols Font (c)blockworks - Kenichi Kaneko
+ * http://emojisymbols.com/
+*/
+// @font-face{
+// 	font-family:"EmojiSymbols";
+// 	src:url('../fonts/EmojiSymbols-Regular.woff') format("woff");
+// }
+
+%icon {
+	&:after {
+		content: ' ';
+		display: inline-block;
+		margin: -3px 0.5em 0;
+		padding: 0.3em 0;
+		width: 1.75em;
+		height: 1.75em;
+		text-align: center;
+		letter-spacing: -0.2em;
+		font-size: 1.5em;
+		line-height: 1em;
+		border: 3px solid;
+		border-radius: 50%;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: contain;
+		vertical-align: middle;
+		transition: all 0.8s ease;
+	}
+}

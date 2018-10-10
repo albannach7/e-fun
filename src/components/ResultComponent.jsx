@@ -52,7 +52,7 @@ export class ResultComponent extends React.Component {
 					}
 				]
 			}
-		}
+		};
 
 		if (this.state.compliance && this.state.compliance.tests) {
 			const tests = this.state.compliance.tests;

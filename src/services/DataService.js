@@ -6,7 +6,6 @@ class DataService {
 
 	getAllData(cached) {
 		if (!cached || this.data.length === 0) {
-			console.log('fresh');
 			let url = `${this.baseUrl}/rows`;
 			const base = this;
 			return fetch(url)
